@@ -1,13 +1,225 @@
-body {
+
+* {
+  padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+}
+body{
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+.display{
+  background: url("./assets/dicebg.jpg");
+  background-size: cover;
+}
+.heroTop {
+  background: url("./assets/dicetopbg.jpg");
+  background-size: cover;
+  background-position: 50% 0%;
+}
+.new::before {
+  position: absolute;
+  top: 0;
+  left: 20vw;
+  content: '';
+  width: 60vw;
+  height: 100vh;
+  background: #3338;
+}
+.new::after,.one::after,.two::after,.three::after,.four::after,.five::after,.six::after,.seven::after,.eight::after,.nine::after,.ten::after,.eleven::after {
+  position: absolute;
+  width: 245px;
+  height: 40px;
+  border-radius: 50% 0 0 50%;
+  transform: translate(46px);
+  background: white;
+  color: #333;
+  font-weight: 800;
+  padding-top: 7px;
+  text-align: center;
+  text-overflow: clip;
+  text-transform: lowercase;
+}
+.one::after{
+  content:" Count and add only aces"
+}
+.two::after{
+  content:" Count and add only twos"
+}
+.three::after{
+  content:" Count and add only threes"
+}
+.four::after{
+  content:" Count and add only fours"
+}
+.five::after{
+  content:" Count and add only fives"
+}
+.six::after{
+  content:" Count and add only sixes"
+}
+.seven::after{
+  content:" 3 of a kind and add all"
+}
+.eight::after{
+  content:" 4 of a kind and add all"
+}
+.nine::after{
+  content:" 3 and 2 of a kind | score: 25"
+}
+.ten::after{
+  content:" Sequence of 5 | score: 40"
+}
+.eleven::after{
+  content:" 5 of a kind | score:50"
+}
+.rotate{
+  display: none;
+  animation: rotating 10s linear infinite;
+}
+@keyframes rotating {
+  from{
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+  
+}
+.turnOver{
+  filter:saturate(.5);
+  cursor:not-allowed;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/*  Dice rolling animation css */
+.dice {
+  display: block;
+  position: relative;
+  width: 50px;
+  height: 50px;
+  transform-style: preserve-3d;
+  transition: .5s ease;
+}
+
+@keyframes rolling {
+  50% {
+      transform: rotateX(455deg) rotateY(455deg);
+  }
+}
+
+.face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  border: 5px solid #ddd;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  color: black;
+  background: linear-gradient(
+      145deg, #fcfcfc, #dadada
+  );
+}
+
+.face::before {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  background: #f6f3f0;
+  transform: translateZ(-1px);
+  backface-visibility: hidden;
+}
+
+.face::after {
+  position: absolute;
+  content: '';
+  top: 50%;
+  left: 50%;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #131210;
+  backface-visibility: hidden;
+}
+
+.front {
+  transform: translateZ(25px);
+}
+
+.back {
+  transform: rotateX(180deg) translateZ(25px);
+}
+
+.top {
+  transform: rotateX(90deg) translateZ(25px);
+}
+
+.bottom {
+  transform: rotateX(-90deg) translateZ(25px);
+}
+
+.right {
+  transform: rotateY(90deg) translateZ(25px);
+}
+
+.left {
+  transform: rotateY(-90deg) translateZ(25px);
+}
+
+.front::after {
+  width: 15px;
+  height: 15px;
+  background: #f63330;
+  margin: -7.5px 0 0 -7.5px;
+}
+
+.back::after {
+  margin: -17.5px 0 0 -15px;
+  box-shadow: 20px 0,
+              0 12.5px,
+              20px 12.5px,
+              0 25px,
+              20px 25px;
+}
+
+.top::after {
+  margin: -15px 0 0 -15px;
+  box-shadow: 20px 20px;
+}
+
+.bottom::after {
+  margin: -18px 0 0 -18px;
+  box-shadow: 13px 13px,
+              26px 26px,
+              26px 0,
+              0 26px;
+}
+
+.right::after {
+  margin: -15px 0 0 -15px;
+  box-shadow: 20px 0,
+  0 20px,
+  20px 20px;
+}
+
+.left::after {
+  margin: -17.5px 0 0 -17.5px;
+  box-shadow: 12.5px 12.5px,
+              25px 25px;
+}
+.fixed {
+  border: 3px dashed purple;
+  border-radius: 10px;
+}
+.show,.show2 {
+  display: flex;
+  transform: translate(0);
+  background: crimson;
+  transition: transform 1s ease 0.1s;
+}
+.show2{
+  background: blue;
 }
