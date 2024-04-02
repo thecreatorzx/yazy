@@ -300,7 +300,7 @@ const Game = ({ setWinner }) => {
     }
   };
   return (
-    <div className="game w-11/12 h-5/6 bg-white border-2 border-neutral-500 shadow-xls shadow-gray-500 rounded-lg px-4 py-1 sm:w-80">
+    <div className="game hidden w-11/12 h-5/6 bg-white border-2 border-neutral-500 shadow-xls shadow-gray-500 rounded-lg px-4 py-1 sm:w-80">
       <div
         className="backB absolute bottom-0 translate-x-20 w-28 cursor-pointer h-14 bg-orange-400 rounded-t-full text-white font-extrabold text-2xl text-center pt-4"
         onClick={goBack}

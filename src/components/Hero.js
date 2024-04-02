@@ -21,7 +21,7 @@ const Hero = () => {
     console.log("how");
   };
   return (
-    <div className="hero hidden w-11/12 h-5/6 bg-dicebg border-2  rounded-lg sm:w-80">
+    <div className="hero w-11/12 h-5/6 bg-dicebg border-2  rounded-lg sm:w-80">
       <div className="heroTop rounded-t-lg w-full h-1/4"></div>
       <div className="select relative rounded-3xl -top-6 m-auto w-11/12 h-96 pb-10 bg-white border-2 p-4 font-extrabold text-gray-900 text-base">
         <p className="px-4 pb-5 text-gray-700">
