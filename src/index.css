@@ -1,23 +1,26 @@
-
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
+
 body{
   width: 100vw;
   height: 100vh;
   overflow: hidden;
 }
+
 .display{
   background: url("./assets/dicebg.jpg");
   background-size: cover;
 }
+
 .heroTop {
   background: url("./assets/dicetopbg.jpg");
   background-size: cover;
   background-position: 50% 0%;
 }
+
 .new::before {
   position: absolute;
   top: 0;
@@ -27,6 +30,7 @@ body{
   height: 100vh;
   background: #3338;
 }
+
 .new::after,.one::after,.two::after,.three::after,.four::after,.five::after,.six::after,.seven::after,.eight::after,.nine::after,.ten::after,.eleven::after {
   position: absolute;
   width: 245px;
@@ -41,58 +45,73 @@ body{
   text-overflow: clip;
   text-transform: lowercase;
 }
+
 .one::after{
   content:" Count and add only aces"
 }
+
 .two::after{
   content:" Count and add only twos"
 }
+
 .three::after{
   content:" Count and add only threes"
 }
+
 .four::after{
   content:" Count and add only fours"
 }
+
 .five::after{
   content:" Count and add only fives"
 }
+
 .six::after{
   content:" Count and add only sixes"
 }
+
 .seven::after{
   content:" 3 of a kind and add all"
 }
+
 .eight::after{
   content:" 4 of a kind and add all"
 }
+
 .nine::after{
   content:" 3 and 2 of a kind | score: 25"
 }
+
 .ten::after{
   content:" Sequence of 5 | score: 40"
 }
+
 .eleven::after{
   content:" 5 of a kind | score:50"
 }
+
 .rotate{
   display: none;
   animation: rotating 10s linear infinite;
 }
+
 @keyframes rotating {
   from{
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(-360deg);
   }
-  
 }
+
 .turnOver{
   filter:saturate(.5);
   cursor:not-allowed;
 }
 
 /*  Dice rolling animation css */
+
 .dice {
   display: block;
   position: relative;
@@ -104,7 +123,7 @@ body{
 
 @keyframes rolling {
   50% {
-      transform: rotateX(455deg) rotateY(455deg);
+    transform: rotateX(455deg) rotateY(455deg);
   }
 }
 
@@ -115,6 +134,7 @@ body{
   border-radius: 10px;
   border: 5px solid #ddd;
   transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   color: black;
   background: linear-gradient(
@@ -130,6 +150,7 @@ body{
   border-radius: 10px;
   background: #f6f3f0;
   transform: translateZ(-1px);
+  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
 
@@ -142,6 +163,7 @@ body{
   height: 9px;
   border-radius: 50%;
   background: #131210;
+  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
 
@@ -210,16 +232,19 @@ body{
   box-shadow: 12.5px 12.5px,
               25px 25px;
 }
+
 .fixed {
   border: 3px dashed purple;
   border-radius: 10px;
 }
+
 .show,.show2 {
   display: flex;
   transform: translate(0);
   background: crimson;
   transition: transform 1s ease 0.1s;
 }
+
 .show2{
   background: blue;
 }

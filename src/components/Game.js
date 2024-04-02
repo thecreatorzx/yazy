@@ -34,7 +34,7 @@ const Game = ({ setWinner }) => {
   ]);
 
   const roll = (e) => {
-    if (counting == 3) {
+    if (counting === 3) {
       setPressable(false);
       setRollable([0, 0, 0, 0, 0]);
       // setDie();
@@ -64,7 +64,7 @@ const Game = ({ setWinner }) => {
   const randomDice = () => {
     const dieList = dieNum;
     for (let i = 0; i < 5; i++) {
-      if (rollable[i] == 0) continue;
+      if (rollable[i] === 0) continue;
       const random = Math.floor(Math.random() * 7);
       dieList[i] = random;
       if (random >= 1 && random <= 10) {
@@ -137,7 +137,7 @@ const Game = ({ setWinner }) => {
     showButton();
     cols.forEach((e) => {
       let x = e.getAttribute("data-index");
-      if (pxScore[x] != -1) {
+      if (pxScore[x] !== -1) {
         e.innerHTML = pxScore[x];
       }
       e.addEventListener("click", function eventL() {
@@ -159,9 +159,9 @@ const Game = ({ setWinner }) => {
         cols.forEach((e) => {
           e.style.cursor = "auto";
           let x = e.getAttribute("data-index");
-          if (turn == 0 && p1Score[x] != -1) {
+          if (turn === 0 && p1Score[x] !== -1) {
             e.innerHTML = p1Score[x];
-          } else if (turn == 1 && p2Score[x] != -1) {
+          } else if (turn === 1 && p2Score[x] !== -1) {
             e.innerHTML = p2Score[x];
           } else {
             e.innerHTML = 0;
@@ -169,24 +169,24 @@ const Game = ({ setWinner }) => {
           setRollable([1, 1, 1, 1, 1]);
 
           for (let i = 0; i < 11; i++) {
-            if (turn == 0) {
+            if (turn === 0) {
               cols3.forEach((e) => {
-                if (p2Score[x] == -1 && e.getAttribute("data-index") == x) {
+                if (p2Score[x] === -1 && e.getAttribute("data-index") === x) {
                   e.style.background = "#3b82f6";
                 }
               });
-              if (p1Score[x] == -1) {
+              if (p1Score[x] === -1) {
                 e.style.background = "#a53a49";
               } else {
                 e.style.background = "#fb7185";
               }
-            } else if (turn == 1) {
+            } else if (turn === 1) {
               cols2.forEach((e) => {
-                if (p1Score[x] == -1 && e.getAttribute("data-index") == x) {
+                if (p1Score[x] === -1 && e.getAttribute("data-index") === x) {
                   e.style.background = "#f43f5e";
                 }
               });
-              if (p2Score[x] == -1) {
+              if (p2Score[x] === -1) {
                 e.style.background = "#315a9e";
               } else {
                 e.style.background = "#60a5fa";
@@ -219,7 +219,7 @@ const Game = ({ setWinner }) => {
       e.target.parentNode.parentNode.classList.toggle("fixed");
       const y = rollable;
       const x = e.target.parentNode.parentNode.getAttribute("data-index");
-      if (rollable[x] == 1) {
+      if (rollable[x] === 1) {
         y[x] = 0;
       } else {
         y[x] = 1;
@@ -244,7 +244,7 @@ const Game = ({ setWinner }) => {
     for (let j = 0; j < 6; j++) {
       scoreMap[j] = hashDie[j] * [j + 1];
       sum += hashDie[j] * [j + 1];
-      if (hashDie[j] > 1 || hashDie[0] == hashDie[5]) {
+      if (hashDie[j] > 1 || hashDie[0] === hashDie[5]) {
         scoreMap[9] = 0;
       }
     }
@@ -300,7 +300,7 @@ const Game = ({ setWinner }) => {
     }
   };
   return (
-    <div className="game w-11/12 h-5/6 bg-white border-2 border-neutral-500 shadow-xls shadow-gray-500 rounded-lg p-3 sm:w-80">
+    <div className="game w-11/12 h-5/6 bg-white border-2 border-neutral-500 shadow-xls shadow-gray-500 rounded-lg px-4 py-1 sm:w-80">
       <div
         className="backB absolute bottom-0 translate-x-20 w-28 cursor-pointer h-14 bg-orange-400 rounded-t-full text-white font-extrabold text-2xl text-center pt-4"
         onClick={goBack}
@@ -381,7 +381,7 @@ const Game = ({ setWinner }) => {
           value4={<FaStar size={"15px"} fill={"#222"} />}
         />
       </div>
-      <div className="dices flex flex-row justify-between items-center w-full h-14 mt-2 rounded-lg px-1">
+      <div className="dices flex flex-row justify-between items-center w-full h-14 rounded-lg px-1">
         <div className="diceblock flex justify-center items-center aspect-square h-5/6 text-white rounded-md ">
           <GiNorthStarShuriken size={"25px"} className="rotate" />
           <Dice fix={fix} index={0} />
@@ -404,7 +404,7 @@ const Game = ({ setWinner }) => {
         </div>
       </div>
       <div
-        className="rollButton flex flex-row justify-center items-center text-4xl font-bold w-full h-14 mt-2 bg-rose-500 text-white rounded-lg cursor-pointer"
+        className="rollButton flex flex-row justify-center items-center text-4xl font-bold w-full h-14 mt-1 bg-rose-500 text-white rounded-lg cursor-pointer"
         onClick={roll}
       >
         ROLL <i className="p-4"></i>
