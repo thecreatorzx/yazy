@@ -2,20 +2,16 @@ import React from "react";
 import { GoPersonFill } from "react-icons/go";
 import { BiSolidBot } from "react-icons/bi";
 import { FaPlayCircle } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
+  const navigate = useNavigate();
   const vsFriend = () => {
-    window.location.reload();
-    const hero = document.querySelector(".hero");
-    const game = document.querySelector(".game");
-    hero.classList.add("hidden");
-    game.classList.remove("hidden");
+    navigate("/game");
   };
   const vsBot = () => {
-    const hero = document.querySelector(".hero");
-    const game = document.querySelector(".game");
-    hero.classList.add("hidden");
-    game.classList.remove("hidden");
+    return;
+    // navigate("/bot");
   };
   const how = () => {
     console.log("how");
@@ -47,7 +43,7 @@ const Hero = () => {
         </div>
         <div
           onClick={vsBot}
-          className="b2 pl-2 flex justify-start items-center flex-row w-full h-1/4 border-2 text-white bg-sky-700 rounded-xl cursor-pointer font-bold text-3xl hover:bg-sky-600"
+          className="b2 pl-2 flex justify-start items-center flex-row w-full h-1/4 border-2 text-white bg-sky-700 rounded-xl font-bold text-3xl hover:bg-sky-600 cursor-not-allowed"
         >
           <BiSolidBot size={"60px"} />
           <div className="flex flex-col pl-5 tracking-wide">

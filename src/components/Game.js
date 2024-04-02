@@ -1,6 +1,7 @@
 import React from "react";
 import Box from "./Box";
 import Dice from "./Dice";
+import { useNavigate } from "react-router-dom";
 import { GiNorthStarShuriken } from "react-icons/gi";
 import {
   TbPentagonNumber1,
@@ -32,6 +33,7 @@ const Game = ({ setWinner }) => {
   const [p2Score, setP2Score] = useState([
     -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
   ]);
+  const navigate = useNavigate();
 
   const roll = (e) => {
     if (counting === 3) {
@@ -208,10 +210,7 @@ const Game = ({ setWinner }) => {
 
   // back button
   const goBack = () => {
-    const hero = document.querySelector(".hero");
-    const game = document.querySelector(".game");
-    hero.classList.remove("hidden");
-    game.classList.add("hidden");
+    navigate("/");
   };
   // fixing dices
   const fix = (e) => {
@@ -300,7 +299,7 @@ const Game = ({ setWinner }) => {
     }
   };
   return (
-    <div className="game hidden w-11/12 h-5/6 bg-white border-2 border-neutral-500 shadow-xls shadow-gray-500 rounded-lg px-4 py-1 sm:w-80">
+    <div className="game w-11/12 h-5/6 bg-white border-2 border-neutral-500 shadow-xls shadow-gray-500 rounded-lg px-4 py-1 sm:w-80">
       <div
         className="backB absolute bottom-0 translate-x-20 w-28 cursor-pointer h-14 bg-orange-400 rounded-t-full text-white font-extrabold text-2xl text-center pt-4"
         onClick={goBack}
