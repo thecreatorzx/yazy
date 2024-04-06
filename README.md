@@ -24,6 +24,8 @@ Points are given to each player based on the numbers on the 5 die. The total is 
 
 There are 11 blocks to fill with points with each block having its own requirements(listed below):
 
+![image](./src/assets/YazyGame.JPG)
+
 - Count and add only aces
 - Count and add only twos
 - Count and add only threes
