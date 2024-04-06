@@ -47,6 +47,14 @@ Not sure how to play is? Check this out [click here](https://walnutstudiolo.com/
 - No block can be used more than once in the course of the game.
 - When both player has had 11 turns, the scores on the blocks are added and the highest score wins.
 
+## Issues
+
+- The blocks can be selected even without first roll and the value is selected based on the previous roll. If you could fix the issue please contribute to it. I am unable to remove event listener function from the block which causes this issue.
+
+- The _how to play_ and **Player vs Bot** functionality isn't added yet.
+
+- The code is a bit messy(due to trial and error) and can be optimised and cleaned.
+
 ## Me
 
 Hey there! My name is Mohd Saad. I am an aspiring Web Developer and currently a Btech student. If you like this project then you can star this repo and if you want to work in a team on any project, contact me via mail or on my [LinkedIn](https://www.linkedin.com/in/webdevmsaad/) profile.
